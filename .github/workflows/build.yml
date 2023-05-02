@@ -8,6 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Update package repositories
+      run: sudo apt-get update
+      
+    - name: Install latest GNU gold linker
+      run: sudo apt-get install binutils-gold
+      
+    - name: Verify linker version
+      run: ld.gold --version
+      
     - name: Checkout kernel source
       uses: actions/checkout@v2
 
